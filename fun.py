@@ -37,7 +37,7 @@ address = {
 
     },
     'optimism': {
-        'type': 0,
+        'type': 2,
         'rpc': config.rpc_links['optimism'],
         'USDC': '0x7f5c764cbc14f9669b88837ca1490cca17c31607',
         'ETH': 'native',
@@ -101,7 +101,7 @@ address = {
         'type': 0,        
         'rpc': '',
         'lzChainId': 116,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x885ef5813E46ab6EFb10567b50b77aAAD4d258ce',
 
     },
     'dexalot': {
@@ -115,121 +115,130 @@ address = {
         'type': 0,        
         'rpc': '',
         'lzChainId': 125,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xE33519C400B8F040E73aeDa2f45DfDD4634A7cA0',
 
     },
     'moonbeam': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 126,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x766b7aC73b0B33fc282BdE1929db023da1fe6458',
 
     },
     'fuse': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 138,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xFFd57B46BD670B0461c7C3EBBaEDC4CdB7c4FB80',
 
     },
     'gnosis': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 145,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xb58f5110855fbef7a715d325d60543e7d4c18143',
 
     },
     'klaytn': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 150,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xd02ffae68d902453b44a9e45dc257aca54fb88b2',
 
     },
     'metis': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 151,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x2E228120c0AF2dE3A74D744B25B24D1fb28CE5B4',
 
     },
     'coredao': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 153,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xCA230856343C300f0cc2Bd77C89F0fCBeDc45B0f',
 
     },
     'okt': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 155,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xa0a54dADc2a1F198C58Fd0739BA7dF40Ffd366Dc',
 
     },
     'zkevm': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 158,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xb58f5110855fBEF7A715d325D60543E7D4c18143',
 
     },
     'canto': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 159,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x426A8Dc7263A439e92972eE2200DA21EC6cEEcfa',
 
     },
     'zksyncera': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 165,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x6dd28C2c5B91DD63b4d4E78EcAC7139878371768',
 
     },
     'moonriver': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 167,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x97337A9710BEB17b8D77cA9175dEFBA5e9AFE62e',
 
     },
     'tenet': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 173,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x83d8476eBccf8094d80D7b2165375a3Ec4E93034',
 
     },
     'nova': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 175,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x484c402B0c8254BD555B68827239BAcE7F491023',
 
     },
     'meter': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 176,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xd81a2e87232b4fdd27fbe16107d8deaaa2d14181',
 
     },
     'sepolia': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 161,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0xf836905A5C6E9dFBB88c4a9ADf79f6a47B43eCBB',
 
     },
     'kava': {
         'type': 0,        
         'rpc': '',
         'lzChainId': 177,
-        'merkly_gas_refuel': '',
+        'merkly_gas_refuel': '0x04866796aabB6B58e6bC4d91A2aE99105b2C58AE',
 
     },
+    'scroll': {
+        'type': 0,        
+        'rpc': 'https://rpc.ankr.com/scroll',
+        'ETH': 'native',
+        'native': 'ETH',        
+        'lzChainId': 214,
+        'merkly_gas_refuel': '',
+
+    }
 
 
 }
@@ -324,3 +333,45 @@ def timeOut(type="main"):
         log(f"пауза {int(time_sleep/60)} минут")
     time.sleep(time_sleep)
 
+def get_new_prices(token = False):
+
+
+    if token:
+        try:
+            url =f'https://min-api.cryptocompare.com/data/price?fsym={token}&tsyms=USDT'
+            result = requests.get(url=url, proxies=config.proxies)
+            if result.status == 200:
+                resp_json = result.json(content_type=None)
+                new_price = float(resp_json['USDT'])
+                config.prices[token] = new_price
+                log(f"Обновил цену для {token}= {new_price}")
+        except Exception as error:
+            log_error(f'Не смог узнать цену для {token}: {error}')
+
+    else:
+            
+        if config.prices["last_update"] > int(time.time()-3600):
+            return False
+        config.prices["last_update"] = int(time.time())
+
+        for token, price in config.prices.items():    
+            if token == "last_update":
+                continue
+
+            try:
+                url =f'https://min-api.cryptocompare.com/data/price?fsym={token}&tsyms=USDT'
+                if config.proxy_use:
+                    result = requests.get(url=url, proxies=config.proxies)
+                else:
+                    result = requests.get(url=url)                    
+                if result.status_code == 200:
+                    resp_json = result.json()
+                    new_price = float(resp_json['USDT'])
+                    config.prices[token] = new_price
+                    log(f"Обновил цену для {token}= {new_price}")
+            except Exception as error:
+                log_error(f'Не смог узнать цену для {token}: {error}')
+
+            time.sleep(1)
+
+    return True
